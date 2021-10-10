@@ -8,12 +8,15 @@ public class HelixManager : MonoBehaviour
     public float ySpawn = 0;
     public float ringDistance = 5f;
 
-    public int numberOfRings = 7;
+    public int numberOfRings;
 
     private void Start()
     {
+        // Adding Number of Rings as Level Progresses
+        numberOfRings = GameManager.currentLevelIndex + 5;
+
         // Spawning the Helix + Rings
-        for(int i = 0; i < numberOfRings; i++)
+        for (int i = 0; i < numberOfRings; i++)
         {
             // Ensuring the Safe ring is Spawned First
             if(i == 0)
