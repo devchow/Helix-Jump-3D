@@ -15,8 +15,20 @@ public class HelixManager : MonoBehaviour
         // Spawning the Helix + Rings
         for(int i = 0; i < numberOfRings; i++)
         {
-            SpawnRing(Random.Range(0, helixRings.Length));
+            // Ensuring the Safe ring is Spawned First
+            if(i == 0)
+            {
+                SpawnRing(0);
+            } 
+            else // Spawning the other Rings
+            {
+                SpawnRing(Random.Range(1, helixRings.Length - 1));
+            }
+            
         }
+
+        // Spawning the Last Ring
+        SpawnRing(helixRings.Length - 1);
     }
 
     public void SpawnRing(int ringIndex)
