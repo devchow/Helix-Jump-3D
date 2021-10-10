@@ -25,7 +25,8 @@ public class Rotator : MonoBehaviour
         if(Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Moved)
         {
             float xDelta = Input.GetTouch(0).deltaPosition.x;
-            transform.Rotate(0, -xDelta * rotationSpeed * Time.deltaTime, 0);
+
+            transform.Rotate(0, xDelta * rotationSpeed * Time.deltaTime, 0);
         }
     }
 }

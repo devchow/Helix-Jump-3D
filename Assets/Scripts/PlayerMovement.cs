@@ -4,12 +4,21 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    [Header("Physics")]
     public Rigidbody playerRB; // Player RigidBody
     public float bounceForce = 6f; // Player Bounce Force
+
+    private AudioManager audioManager;
+
+    private void Start()
+    {
+        audioManager = FindObjectOfType<AudioManager>();
+    }
 
     // When player collides with ring => Bounce player
     private void OnCollisionEnter(Collision collision)
     {
+        audioManager.Play("bounce"); // Play Bounce SFX
         playerRB.velocity = new Vector3(playerRB.velocity.x, bounceForce, playerRB.velocity.z);
 
         string materialName = collision.transform.GetComponent<MeshRenderer>().material.name;
@@ -19,7 +28,7 @@ public class PlayerMovement : MonoBehaviour
             // The Ball Hits Safe Area
 
             // Play SFX
-
+            //audioManager.Play("whoosh"); // Play Ring Pass SFX
         }
         else if(materialName == "Unsafe (Instance)")
         {
@@ -27,14 +36,15 @@ public class PlayerMovement : MonoBehaviour
             GameManager.gameOver = true;
 
             // Play SFX
-
+            audioManager.Play("gameOver"); // Play Game Over SFX
         }
-        else if (materialName == "Last Ring (Instance)")
+        else if (materialName == "Last Ring (Instance)" && !GameManager.levelComplete)
         {
             // You Completed the Level
             GameManager.levelComplete = true;
 
             // Play SFX
+            audioManager.Play("levelComplete"); // Play Level Complete SFX
         }
     }
 }
