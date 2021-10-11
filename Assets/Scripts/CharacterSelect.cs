@@ -5,7 +5,7 @@ using UnityEngine;
 public class CharacterSelect : MonoBehaviour
 {
     public GameObject[] characters;
-    private int selectCharacters;
+    private int selectCharacter;
 
     void Start()
     {
@@ -13,7 +13,18 @@ public class CharacterSelect : MonoBehaviour
         {
             ch.SetActive(false);
         }
-        characters[selectCharacters].SetActive(true);
+        characters[selectCharacter].SetActive(true);
+    }
+
+    public void ChangeCharacter(int newCharacter)
+    {
+        // Disabling Current Selected Character
+        characters[selectCharacter].SetActive(false);
+
+        // Enabling the new character
+        characters[newCharacter].SetActive(true);
+
+        selectCharacter = newCharacter;
     }
 
 }
