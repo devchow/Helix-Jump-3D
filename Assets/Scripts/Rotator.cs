@@ -8,7 +8,8 @@ public class Rotator : MonoBehaviour
 
     private void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked;
+        // Disbling Cursor on PC
+        //Cursor.lockState = CursorLockMode.Locked;
     }
 
     void Update()
@@ -26,7 +27,7 @@ public class Rotator : MonoBehaviour
         {
             float xDelta = Input.GetTouch(0).deltaPosition.x;
 
-            transform.Rotate(0, xDelta * rotationSpeed * Time.deltaTime, 0);
+            transform.Rotate(0, -xDelta * rotationSpeed * Time.deltaTime, 0);
         }
     }
 }
