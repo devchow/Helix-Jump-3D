@@ -2020,6 +2020,7 @@ GameObject:
   - component: {fileID: 1226442483}
   - component: {fileID: 1226442485}
   - component: {fileID: 1226442484}
+  - component: {fileID: 1226442486}
   m_Layer: 5
   m_Name: DragToRotate
   m_TagString: Untagged
@@ -2083,6 +2084,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1226442482}
   m_CullTransparentMesh: 0
+--- !u!95 &1226442486
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1226442482}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 99d5344c03ed7c7489443085f3c9206e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1257872571
 GameObject:
   m_ObjectHideFlags: 0
