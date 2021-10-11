@@ -3,17 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class GameManager : MonoBehaviour
 {
-    [Header("States | Game Over & Level Complete")]
+    [Header("States | Booleans")]
     public static bool gameOver;
     public static bool levelComplete;
+    public static bool mute = false;
+    public static bool isGameStarted;
 
-    [Header("Panels | Game Over & Level Complete")]
+    [Header("Panels")]
     public GameObject gameOverPanel;
     public GameObject levelCompletePanel;
+    public GameObject gamePlayPanel;
+    public GameObject startMenuPanel;
 
+    [Header("UI")]
     public static int currentLevelIndex;
     public Slider gameProgressSlider;
     public Text currentLevelText;
@@ -30,9 +36,10 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 1;
         ringsPassed = 0;
+
         // When Game Starts its not over yet
-        gameOver = false;
-        levelComplete = false;
+        gameOver = levelComplete = false;
+        isGameStarted = false;
     }
 
     void Update()
@@ -44,6 +51,17 @@ public class GameManager : MonoBehaviour
         // Game Progress
         int progress = ringsPassed * 100 / FindObjectOfType<HelixManager>().numberOfRings;
         gameProgressSlider.value = progress;
+
+        // Enabling GamePlay Panel  | Hiding Start-Menu Panel
+        if(Input.GetMouseButtonDown(0) && !isGameStarted)
+        {
+            //if (EventSystem.current.IsPointerOverGameObject())
+                //return;
+
+            //isGameStarted = true;
+            //gamePlayPanel.SetActive(true);
+            //startMenuPanel.SetActive(false);
+        }
 
         // If Game is Over
         if (gameOver)

@@ -31,6 +31,10 @@ public class AudioManager : MonoBehaviour {
 
 	public void Play (string sound)
 	{
+		//Check if Sund is Muted
+		if (GameManager.mute)
+			return;
+
 		Sound s = Array.Find(sounds, item => item.name == sound);
 		s.source.Play();
 	}
