@@ -27,8 +27,6 @@ public class PlayerMovement : MonoBehaviour
         {
             // The Ball Hits Safe Area
 
-            // Play SFX
-            //audioManager.Play("whoosh"); // Play Ring Pass SFX
         }
         else if(materialName == "Unsafe (Instance)")
         {
