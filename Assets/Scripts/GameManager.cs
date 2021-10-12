@@ -26,6 +26,7 @@ public class GameManager : MonoBehaviour
     public Text nextLevelText;
 
     public static int ringsPassed;
+    public static int score = 0;
 
     private void Awake()
     {
@@ -52,6 +53,9 @@ public class GameManager : MonoBehaviour
         int progress = ringsPassed * 100 / FindObjectOfType<HelixManager>().numberOfRings;
         gameProgressSlider.value = progress;
 
+        // Displaying Score
+        Debug.Log("Your Score is " + score);
+
         // Enabling GamePlay Panel  | Hiding Start-Menu Panel
         if(Input.GetMouseButtonDown(0) && !isGameStarted)
         {
@@ -75,6 +79,7 @@ public class GameManager : MonoBehaviour
             // Reload Scene when player press Restart
             if(Input.GetButtonDown("Fire1"))
             {
+                score = 0;
                 SceneManager.LoadScene("Level");
             }
         }

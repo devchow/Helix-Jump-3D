@@ -19,6 +19,7 @@ public class Ring : MonoBehaviour
 
             // Play SFX | VFX | Increase Score
             FindObjectOfType<AudioManager>().Play("whoosh");
+            GameManager.score++;
             Destroy(gameObject);
         }
     }
