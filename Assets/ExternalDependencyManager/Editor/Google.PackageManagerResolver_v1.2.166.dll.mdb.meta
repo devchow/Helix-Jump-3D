@@ -3,11 +3,9 @@ guid: d167fe10b6ff4f7ca47c84c5225a9c40
 labels:
 - gvh
 - gvh_version-1.2.166
-- gvh_version-6.1.1
 - gvhp_exportpath-ExternalDependencyManager/Editor/Google.PackageManagerResolver_v1.2.166.dll.mdb
-timeCreated: 1538009133
-licenseType: Pro
 DefaultImporter:
-  userData:
-  assetBundleName:
-  assetBundleVariant:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
