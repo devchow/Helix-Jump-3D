@@ -27,6 +27,8 @@ public class GameManager : MonoBehaviour
 
     public static int ringsPassed;
     public static int score = 0;
+    public Text scoreTxt;
+    public Text highScoreTxt;
 
     private void Awake()
     {
@@ -37,6 +39,7 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 1;
         ringsPassed = 0;
+        highScoreTxt.text = "Best Score\n" + PlayerPrefs.GetInt("HighScore", 0);
 
         // When Game Starts its not over yet
         gameOver = levelComplete = false;
@@ -54,10 +57,10 @@ public class GameManager : MonoBehaviour
         gameProgressSlider.value = progress;
 
         // Displaying Score
-        Debug.Log("Your Score is " + score);
+        scoreTxt.text = score.ToString();
 
         // Enabling GamePlay Panel  | Hiding Start-Menu Panel
-        if(Input.GetMouseButtonDown(0) && !isGameStarted)
+        if (Input.GetMouseButtonDown(0) && !isGameStarted)
         {
             //if (EventSystem.current.IsPointerOverGameObject())
                 //return;
@@ -79,6 +82,12 @@ public class GameManager : MonoBehaviour
             // Reload Scene when player press Restart
             if(Input.GetButtonDown("Fire1"))
             {
+                // Updating High Score
+                if(score > PlayerPrefs.GetInt("HighScore", 0))
+                {
+                    PlayerPrefs.SetInt("HighScore", score);
+                }
+
                 score = 0;
                 SceneManager.LoadScene("Level");
             }
