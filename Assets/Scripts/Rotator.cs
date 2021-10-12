@@ -14,13 +14,17 @@ public class Rotator : MonoBehaviour
 
     void Update()
     {
-        // PC Helix Rotation
-       // if(Input.GetMouseButton(0))
-      //  {
-         //   float mouseX = Input.GetAxisRaw("Mouse X");
+        // If Game is Started Rotate the Helix Tower
+        if (!GameManager.isGameStarted)
+            return;
 
-           // transform.Rotate(0, -mouseX * rotationSpeed * Time.deltaTime, 0);
-        //}
+        // PC Helix Rotation
+        /*if(Input.GetMouseButton(0))
+        {
+            float mouseX = Input.GetAxisRaw("Mouse X");
+
+            transform.Rotate(0, -mouseX * rotationSpeed * Time.deltaTime, 0);
+        } */
 
         // Mobile Helix Rotation
         if(Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Moved)

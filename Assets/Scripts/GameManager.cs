@@ -60,14 +60,14 @@ public class GameManager : MonoBehaviour
         scoreTxt.text = score.ToString();
 
         // Enabling GamePlay Panel  | Hiding Start-Menu Panel
-        if (Input.GetMouseButtonDown(0) && !isGameStarted)
+        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began && !isGameStarted)
         {
-            //if (EventSystem.current.IsPointerOverGameObject())
-                //return;
+            if (EventSystem.current.IsPointerOverGameObject(Input.GetTouch(0).fingerId))
+                return;
 
-            //isGameStarted = true;
-            //gamePlayPanel.SetActive(true);
-            //startMenuPanel.SetActive(false);
+            isGameStarted = true;
+            gamePlayPanel.SetActive(true);
+            startMenuPanel.SetActive(false);
         }
 
         // If Game is Over
