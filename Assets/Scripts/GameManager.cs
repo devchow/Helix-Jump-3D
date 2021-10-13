@@ -44,6 +44,9 @@ public class GameManager : MonoBehaviour
         // When Game Starts its not over yet
         gameOver = levelComplete = false;
         isGameStarted = false;
+
+        // Loading Interstitial Ad
+        AdManager.instance.RequestInterstitial();
     }
 
     void Update()
@@ -74,13 +77,16 @@ public class GameManager : MonoBehaviour
         if (gameOver)
         {
             // Pausing the Game
-            Time.timeScale = 0; 
+            Time.timeScale = 0;
+
+            // Interstitial Ad 
+            AdManager.instance.ShowInterstitial();
 
             // Displaying Game Over Panel
             gameOverPanel.SetActive(true);
 
             // Reload Scene when player press Restart
-            if(Input.GetButtonDown("Fire1"))
+            if (Input.GetButtonDown("Fire1"))
             {
                 // Updating High Score
                 if(score > PlayerPrefs.GetInt("HighScore", 0))
