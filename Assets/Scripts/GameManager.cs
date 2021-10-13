@@ -95,6 +95,9 @@ public class GameManager : MonoBehaviour
                 if(score > PlayerPrefs.GetInt("HighScore", 0))
                 {
                     PlayerPrefs.SetInt("HighScore", score);
+
+                    // Adding Score to leader-Board
+                    FindObjectOfType<PlayGames>().AddScoreToLeaderboard();
                 }
 
                 score = 0;
