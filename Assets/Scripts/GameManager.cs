@@ -79,8 +79,11 @@ public class GameManager : MonoBehaviour
             // Pausing the Game
             Time.timeScale = 0;
 
-            // Interstitial Ad 
-            AdManager.instance.ShowInterstitial();
+            // Interstitial Ad | to display after a while
+            if(Random.Range(0, 3) == 1)
+            {
+                AdManager.instance.ShowInterstitial();
+            }
 
             // Displaying Game Over Panel
             gameOverPanel.SetActive(true);
